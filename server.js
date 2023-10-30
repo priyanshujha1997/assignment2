@@ -25,7 +25,7 @@ app.get('/api/info/:id', (req, res) => {
   
     if (data) {
       dataArray.push(data);
-    return  res.json({ success: true, data, message: 'Data added successfully' });
+    return  res.json({ success: true, data:dataArray, message: 'Data added successfully' });
     } else {
       res.status(400).json({ success: false, message: 'Invalid data' });
     }
@@ -33,15 +33,7 @@ app.get('/api/info/:id', (req, res) => {
     
 
 
-app.post('/api/data',(req, res) =>{
-    const {body}=req
-    res.json(body)
-})
 
-
-app.post('/post',(req, res)=>{
-    req.send(req.body)
-})
 
 app.listen(port,()=>{
     console.log(`Server listen on port ${port}`)
